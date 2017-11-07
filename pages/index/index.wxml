@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="bg" src="../../src/img/bg-cover.jpg"></image>
+  <image class="cover-photo" src="../../src/img/cover-photo.png"></image>
+  <image class="{{flip?'flip level-down':''}} btn-entrance" catchtap="checkLogin" src="../../src/img/btn-entrance.png"></image> 
+  <image class="{{flip?'flip':''}} btn-join" catchtap="checkLogin" src="../../src/img/btn-join.png"></image>
+  <button wx:if="{{flip}}" class="{{flip?'level-up':''}} hide-enterance" open-type="contact" catchtap="enter" session-from="weapp"></button>
+ 
+  <view class="shade" wx:if="{{before}}">
+    <image class="bg" src="../../src/img/shade-before.png"></image>
+    <text class="marked-words">您的问诊时间是: {{month}}月 {{day}}日 {{preciseTime}}</text>
+    <image class="btn-konw" catchtap="know" src="../../src/img/btn-know.png"></image>
+  </view>
+   <view class="shade" wx:if="{{after}}">
+    <image class="bg" src="../../src/img/shade-after.png"></image>
+    <text class="marked-words">您的问诊时间是: {{month}}月 {{day}}日 {{preciseTime}}</text>
+    <image class="btn-konw" catchtap="know" src="../../src/img/btn-know.png"></image>
+  </view>
+</view>

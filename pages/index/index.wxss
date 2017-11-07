@@ -1,0 +1,107 @@
+/* index.wxss */
+
+page {
+  height: 100%;
+}
+
+.bg {
+  width: 750rpx;
+  height: 100%;
+}
+
+.cover-photo {
+  position: absolute;
+  width: 360rpx;
+  height: 390rpx;
+  left: 195rpx;
+  top: 500rpx;
+}
+
+.btn-entrance {
+  position: absolute;
+  width: 650rpx;
+  height: 80rpx;
+  left: 50rpx;
+  bottom: 150rpx;
+  transform: rotateX(0deg);
+}
+
+.btn-join {
+  position: absolute;
+  width: 650rpx;
+  height: 80rpx;
+  left: 50rpx;
+  bottom: 150rpx;
+  z-index: -1;
+  transform: rotateX(0deg);
+}
+
+.hide-enterance {
+  position: absolute;
+  width: 650px;
+  height: 80rpx;
+  left: 50rpx;
+  bottom: 150rpx;
+  opacity: 0;
+  z-index: -1;
+}
+
+.hide-enterance.level-up {
+  z-index: 3;
+}
+.btn-entrance.level-down {
+  z-index: 1;
+}
+
+/*按钮旋转*/
+
+.flip {
+  animation: rotate 1s ease-in-out 1;
+  animation-fill-mode: forwards;
+  -webkit-animation: rotate 1s ease-in-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(180deg);
+  }
+
+  100% {
+    transform: rotateX(360deg);
+    z-index: 2;
+  }
+}
+
+.shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.shade .bg {
+  width: 100%;
+}
+
+.shade .marked-words {
+  position: absolute;
+  width: 70%;
+  height: 60rpx;
+  left: 15%;
+  bottom: 49%;
+  font-size: 14px;
+}
+
+.shade .btn-konw {
+  position: absolute;
+  width: 40%;
+  height: 74rpx;
+  left: 30%;
+  bottom: 38%;
+}
