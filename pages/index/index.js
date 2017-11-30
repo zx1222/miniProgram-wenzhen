@@ -18,18 +18,20 @@ Page({
     },
     onLoad: function () {
         var that = this
-        // openid
-        var openid = wx.getStorageSync('openid')
-        this.setData({
-            openid: openid
-        })
+        app.getOpenid().then(function (value) {
+            console.log('获取openid成功:' + value)
+            that.setData({
+                openid: value
+            })
+        }, function (error) {
+            console.log('error')
+        });
         app.getUserInfo(function (userInfo) {
             //更新数据
             that.setData({
                 userInfo: userInfo,
             })
         })
-        console.log(this.data.openid)
     },
     konw: function () {
         this.setData({
@@ -37,14 +39,13 @@ Page({
         })
     },
     enter: function () {
-        console.log('enter')
     }
     ,
     //判断登录用户是否存在于现在时段的分组中 
     checkLogin: function () {
         var that = this
         wx.request({
-            url: 'http://192.168.0.189/net_sindcorp_anniutingwenzhen/web/anniu/list/index',
+            url: 'http://192.168.0.189/net_sindcorp_anniuhuodong/web/anniuwenzhen/api/list',
             header: {
                 'content-type': 'application/json'
             },
@@ -73,7 +74,6 @@ Page({
                         userArr.push(data[i].user_list[j].user.openid)
                     }
                 }
-                console.log(userArr.indexOf(that.data.openid))
                 if (userArr.indexOf(that.data.openid) != -1) {
                     console.log('有这个用户')
                     for (var i = 0; i < data.length; i++) {
@@ -183,5 +183,8 @@ Page({
             before:false,
             after:false
         })
+    },
+    formatDate(data){
+        
     }
 })
